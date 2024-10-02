@@ -1,0 +1,66 @@
+/* ログインフォーム全体を中央に配置 */
+.login-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 50vh;
+  background-color: #f0f2f5;
+}
+
+/* フォームのスタイル */
+.login-form {
+  background-color: white;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  width: 300px;
+  text-align: center;
+}
+
+/* フォームのヘッダー */
+.login-form h2 {
+  margin-bottom: 20px;
+  font-size: 24px;
+  color: #333;
+}
+
+/* ラベルと入力フィールド */
+.login-form label {
+  display: block;
+  margin-bottom: 5px;
+  font-size: 14px;
+  color: #333;
+  text-align: left;
+}
+
+.login-form input {
+  width: 90%;
+  padding: 10px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 14px;
+}
+
+/* ボタンのスタイル */
+.login-form button {
+  width: 100%;
+  padding: 10px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.login-form button:hover {
+  background-color: #0056b3;
+}
+
+/* エラーメッセージのスタイル */
+.login-form .error-message {
+  color: red;
+  font-size: 14px;
+  margin-bottom: 15px;
+}

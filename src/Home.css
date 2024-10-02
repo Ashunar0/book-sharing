@@ -1,0 +1,58 @@
+.body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+}
+
+/* ホーム画面のタイトルを左上に固定 */
+h1 {
+  position: fixed;
+  top: 10px;
+  left: 10px;
+  font-size: 24px;
+  font-weight: bold;
+  color: #333;
+}
+
+/* タイムラインのスタイル */
+.timeline {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 60px 20px; /* タイトルが被らないように、上部に余白を追加 */
+  width: 100%;
+}
+
+/* ポストのスタイル */
+.post {
+  background-color: white;
+  padding: 15px;
+  margin: 10px 0;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 800px;
+  position: relative; /* createdAtを右下に配置するため */
+}
+
+/* ポストのタイトル */
+.post h3 {
+  margin: 0;
+  font-size: 20px;
+  color: #333;
+}
+
+/* ポストの内容 */
+.post p {
+  font-size: 16px;
+  color: #666;
+}
+
+/* 作成日時を右下に配置するスタイル */
+.post .created-at {
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+  font-size: 12px;
+  color: #999;
+}
