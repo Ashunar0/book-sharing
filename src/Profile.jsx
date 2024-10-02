@@ -5,22 +5,41 @@ import { Link } from "react-router-dom";
 
 const Profile = () => {
   const [userPosts, setUserPosts] = useState([]);
+  const [userInfo, setUserInfo] = useState({});
   const currentUser = auth.currentUser;
+
+  // usersコレクションからユーザー名とプロフィール文を取得
+  const fetchUsernamesAndProfileTexts = async () => {
+    const usersSnapshot = await getDocs(collection(db, "users"));
+    const usersMap = {}; // ユーザーIDをキーにユーザー名とプロフィール文をマッピング
+
+    usersSnapshot.docs.forEach((doc) => {
+      const userData = doc.data();
+      usersMap[doc.id] = {
+        username: userData.username,
+        profileText: userData.text || "", // プロフィール文を取得（存在しない場合は空文字）
+      };
+    });
+
+    setUserInfo(usersMap); // ユーザー情報をステートに保存
+  };
 
   useEffect(() => {
     const fetchUserPosts = async () => {
       if (currentUser) {
+        // ユーザー情報の取得
+        await fetchUsernamesAndProfileTexts();
+
+        // ユーザーの投稿を取得
         const postsRef = collection(db, "posts");
-        const q = query(postsRef, where("userId", "==", currentUser.uid)); // 自分の投稿のみ取得
+        const q = query(postsRef, where("userId", "==", currentUser.uid));
         const postsSnapshot = await getDocs(q);
         const postsList = postsSnapshot.docs.map((doc) => ({
           id: doc.id,
           ...doc.data(),
         }));
 
-        // createdAtでソート（新しい投稿が上になるように）
         postsList.sort((a, b) => b.createdAt.seconds - a.createdAt.seconds);
-
         setUserPosts(postsList);
       }
     };
@@ -31,11 +50,16 @@ const Profile = () => {
   return (
     <div className="profile-container">
       <h1>プロフィール</h1>
-      {currentUser && (
+      {currentUser && userInfo[currentUser.uid] && (
         <div>
-          <h2>{currentUser.displayName || currentUser.email}</h2>
+          <h2>{userInfo[currentUser.uid].username || currentUser.email}</h2>
+          <p>{userInfo[currentUser.uid].profileText}</p>{" "}
+          {/* プロフィール文を表示 */}
           <Link to="/">
             <button>ホームに戻る</button>
+          </Link>
+          <Link to="/edit-profile" className="edit-button">
+            <button>編集</button>
           </Link>
         </div>
       )}
