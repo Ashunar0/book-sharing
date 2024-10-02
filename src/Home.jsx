@@ -56,9 +56,11 @@ const Home = () => {
         <button className="profile-button">プロフィール</button>
       </Link>
 
-      <button className="logout-button" onClick={handleLogout}>
-        ログアウト
-      </button>
+      <Link to="/login">
+        <button className="logout-button" onClick={handleLogout}>
+          ログアウト
+        </button>
+      </Link>
 
       <Link to="/create-post">
         <button className="create-post-button">投稿作成</button>{" "}
