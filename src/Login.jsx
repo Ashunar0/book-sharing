@@ -1,50 +1,42 @@
 import { useState } from "react";
 import { signInWithEmailAndPassword } from "firebase/auth";
-import { auth } from "./firebase";
-import { useNavigate } from "react-router-dom";
-import "./Login.css";
+import { Link, useNavigate } from "react-router-dom"; // Link と useNavigate のインポート
+import { auth } from "./firebase"; // Firebaseの認証機能をインポート
+//import "./Login.css"; // スタイルのインポート
 
 const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [error, setError] = useState("");
-  const navigate = useNavigate(); // useNavigateフックを使用
+  const navigate = useNavigate();
 
-  const handleLogin = async (e) => {
-    e.preventDefault();
+  const handleLogin = async () => {
     try {
       await signInWithEmailAndPassword(auth, email, password);
-      navigate("/"); // ログイン成功時にホーム画面へ遷移
+      navigate("/"); // ログイン後、ホーム画面へ遷移
     } catch (error) {
-      setError("ログインに失敗しました：" + error.message);
+      console.error("Error logging in: ", error);
     }
   };
 
   return (
     <div className="login-container">
-      <form className="login-form" onSubmit={handleLogin}>
-        <h2>ログイン</h2>
-        {error && <p className="error-message">{error}</p>}
-        <div>
-          <label>Email:</label>
-          <input
-            type="email"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-            required
-          />
-        </div>
-        <div>
-          <label>Password:</label>
-          <input
-            type="password"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-            required
-          />
-        </div>
-        <button type="submit">ログイン</button>
-      </form>
+      <h2>ログイン</h2>
+      <input
+        type="email"
+        placeholder="Email"
+        onChange={(e) => setEmail(e.target.value)}
+      />
+      <input
+        type="password"
+        placeholder="Password"
+        onChange={(e) => setPassword(e.target.value)}
+      />
+      <button onClick={handleLogin}>ログイン</button>
+
+      {/* 新規登録ページへのリンク */}
+      <p>
+        アカウントをお持ちでないですか？ <Link to="/signup">新規登録</Link>
+      </p>
     </div>
   );
 };
