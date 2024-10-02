@@ -15,6 +15,10 @@ const Home = () => {
         id: doc.id,
         ...doc.data(),
       }));
+
+      // createdAtでソート（新しい投稿が上になるように）
+      postsList.sort((a, b) => b.createdAt.seconds - a.createdAt.seconds);
+
       setPosts(postsList);
     };
 

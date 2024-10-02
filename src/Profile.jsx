@@ -1,61 +1,61 @@
 import { useEffect, useState } from "react";
-import { getAuth } from "firebase/auth";
-import { doc, getDoc } from "firebase/firestore";
-import { db } from "./firebase";
+import { auth, db } from "./firebase"; // Firebaseのauthとdbをインポート
+import { collection, getDocs, query, where } from "firebase/firestore";
 import { Link } from "react-router-dom";
-//import "./Profile.css";
 
 const Profile = () => {
-  const [userData, setUserData] = useState(null);
-  const auth = getAuth();
-  const user = auth.currentUser;
+  const [userPosts, setUserPosts] = useState([]);
+  const currentUser = auth.currentUser;
 
   useEffect(() => {
-    const fetchUserData = async () => {
-      if (user) {
-        // Firestoreからユーザー情報を取得
-        const userDocRef = doc(db, "users", user.uid);
-        const userDocSnap = await getDoc(userDocRef);
-        if (userDocSnap.exists()) {
-          setUserData(userDocSnap.data());
-        } else {
-          console.log("No such document!");
-        }
+    const fetchUserPosts = async () => {
+      if (currentUser) {
+        const postsRef = collection(db, "posts");
+        const q = query(postsRef, where("userId", "==", currentUser.uid)); // 自分の投稿のみ取得
+        const postsSnapshot = await getDocs(q);
+        const postsList = postsSnapshot.docs.map((doc) => ({
+          id: doc.id,
+          ...doc.data(),
+        }));
+
+        // createdAtでソート（新しい投稿が上になるように）
+        postsList.sort((a, b) => b.createdAt.seconds - a.createdAt.seconds);
+
+        setUserPosts(postsList);
       }
     };
-    fetchUserData();
-  }, [user]);
 
-  if (!user) {
-    return <p>ログインしていません。</p>;
-  }
+    fetchUserPosts();
+  }, [currentUser]);
 
   return (
     <div className="profile-container">
       <h1>プロフィール</h1>
-
-      {/*ホーム画面へ戻るボタン */}
-      <Link to="/">
-        <button className="home-button">戻る</button>
-      </Link>
-
-      {userData && (
-        <div className="profile-info">
-          <p>
-            <strong>名前:</strong> {userData.username}
-          </p>
-          <p>
-            <strong>Email:</strong> {userData.email}
-          </p>
-          <p>
-            <strong>プロフィール文:</strong> {userData.text}
-          </p>
-          <p>
-            <strong>フォロー中のユーザー:</strong>{" "}
-            {userData.following_userid.length}
-          </p>
+      {currentUser && (
+        <div>
+          <h2>{currentUser.displayName || currentUser.email}</h2>
+          <Link to="/">
+            <button>ホームに戻る</button>
+          </Link>
         </div>
       )}
+
+      <h2>あなたの投稿</h2>
+      <div className="posts-container">
+        {userPosts.length > 0 ? (
+          userPosts.map((post) => (
+            <div key={post.id} className="post">
+              <h3>{post.title}</h3>
+              <p>{post.content}</p>
+              <small className="created-at">
+                {new Date(post.createdAt.seconds * 1000).toLocaleString()}
+              </small>
+            </div>
+          ))
+        ) : (
+          <p>投稿がありません。</p>
+        )}
+      </div>
     </div>
   );
 };
