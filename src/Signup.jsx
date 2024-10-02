@@ -3,7 +3,7 @@ import { createUserWithEmailAndPassword } from "firebase/auth";
 import { setDoc, doc } from "firebase/firestore";
 import { auth, db } from "./firebase"; // Firebase AuthenticationとFirestoreをインポート
 import { Link, useNavigate } from "react-router-dom"; // ページ遷移用
-import "./Signup.css"; // スタイルのインポート
+//import "./Signup.css"; // スタイルのインポート
 
 const Signup = () => {
   const [email, setEmail] = useState("");

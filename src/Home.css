@@ -1,58 +1,86 @@
-.body {
+/* 全体のスタイル */
+body {
   margin: 0;
   padding: 0;
+  font-family: Arial, sans-serif;
+}
+
+/* サイドバーのスタイル */
+.sidebar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 200px;
+  height: 100%;
+  background-color: #333;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  padding-top: 20px;
+}
+
+/* サイドバー内のボタン */
+.sidebar button {
+  background-color: #444;
+  color: white;
+  border: none;
+  padding: 15px;
+  text-align: left;
+  width: 100%;
+  font-size: 16px;
+  cursor: pointer;
+  border-bottom: 1px solid #555;
+}
+
+.sidebar button:hover {
+  background-color: #555;
+}
+
+/* ホームコンテナ */
+.home-container {
+  margin-left: 200px; /* サイドバーの幅を確保 */
+  padding: 20px;
   width: 100%;
 }
 
-/* ホーム画面のタイトルを左上に固定 */
-h1 {
+/* 固定されたヘッダー */
+.fixed-header {
+  font-size: 24px;
+  margin-bottom: 20px;
+  text-align: left;
   position: fixed;
   top: 10px;
-  left: 10px;
-  font-size: 24px;
-  font-weight: bold;
-  color: #333;
+  left: 220px; /* サイドバーの幅に合わせて調整 */
+  z-index: 1000;
 }
 
-/* タイムラインのスタイル */
-.timeline {
+/* 投稿のコンテナ */
+.posts-container {
+  margin-top: 50px;
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 60px 20px; /* タイトルが被らないように、上部に余白を追加 */
   width: 100%;
 }
 
-/* ポストのスタイル */
 .post {
   background-color: white;
-  padding: 15px;
-  margin: 10px 0;
   border-radius: 8px;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-  width: 100%;
-  max-width: 800px;
-  position: relative; /* createdAtを右下に配置するため */
+  padding: 20px;
+  margin-bottom: 20px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  width: 80%; /* 横幅を80%に拡大 */
+  max-width: 800px; /* 最大幅を設定 */
 }
 
-/* ポストのタイトル */
-.post h3 {
-  margin: 0;
-  font-size: 20px;
-  color: #333;
-}
-
-/* ポストの内容 */
-.post p {
-  font-size: 16px;
-  color: #666;
-}
-
-/* 作成日時を右下に配置するスタイル */
-.post .created-at {
-  position: absolute;
-  bottom: 10px;
-  right: 10px;
+/* 投稿者名と投稿日 */
+.author,
+.created-at {
   font-size: 12px;
-  color: #999;
+  color: #888;
+}
+
+.created-at {
+  text-align: right;
+  margin-top: 10px;
 }

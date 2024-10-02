@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { auth, db } from "./firebase"; // Firebaseのauthとdbをインポート
 import { collection, getDocs } from "firebase/firestore";
 import { Link } from "react-router-dom";
+//import "./Home.css";
 
 const Home = () => {
   const [posts, setPosts] = useState([]);
@@ -52,20 +53,17 @@ const Home = () => {
         </h2>
       )}
 
-      <Link to="/profile">
-        <button className="profile-button">プロフィール</button>
-      </Link>
-
-      <Link to="/login">
-        <button className="logout-button" onClick={handleLogout}>
-          ログアウト
-        </button>
-      </Link>
-
-      <Link to="/create-post">
-        <button className="create-post-button">投稿作成</button>{" "}
-        {/* 投稿作成ボタン */}
-      </Link>
+      <div className="sidebar">
+        <Link to="/profile">
+          <button>プロフィール</button>
+        </Link>
+        <Link to="/create-post">
+          <button>投稿作成</button>
+        </Link>
+        <Link to="/login">
+          <button onClick={handleLogout}>ログアウト</button>
+        </Link>
+      </div>
 
       {/* 投稿の表示 */}
       <div className="posts-container">
