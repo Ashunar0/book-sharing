@@ -1,66 +1,93 @@
-/* ログインフォーム全体を中央に配置 */
-.login-container {
+/* 全体のスタイル */
+body {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+  background-color: #f4f4f4;
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 50vh;
-  background-color: #f0f2f5;
+  height: 100vh;
+  box-sizing: border-box;
 }
 
-/* フォームのスタイル */
-.login-form {
-  background-color: white;
-  padding: 20px;
-  border-radius: 10px;
+/* ログインフォームのコンテナ */
+.login-container {
+  background-color: #fff;
+  padding: 40px;
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-  width: 300px;
+  border-radius: 8px;
+  width: 400px;
   text-align: center;
 }
 
-/* フォームのヘッダー */
-.login-form h2 {
-  margin-bottom: 20px;
+/* ログインフォームのタイトル */
+.login-container h1 {
+  margin-bottom: 30px;
   font-size: 24px;
   color: #333;
 }
 
-/* ラベルと入力フィールド */
-.login-form label {
-  display: block;
-  margin-bottom: 5px;
-  font-size: 14px;
+/* ログインフォームのタイトル */
+.login-container h1 {
+  margin-bottom: 30px;
+  font-size: 24px;
   color: #333;
-  text-align: left;
 }
 
-.login-form input {
-  width: 90%;
+/* 入力フィールド */
+.login-container input[type="email"],
+.login-container input[type="password"],
+.login-container button {
+  width: 100%; /* 全ての要素の幅を100%に設定 */
   padding: 10px;
-  margin-bottom: 15px;
+  margin: 10px 0;
+  border-radius: 4px;
+  font-size: 16px;
+  box-sizing: border-box; /* これでパディングやボーダーを含めたサイズが正確に管理されます */
+}
+
+/* 入力フィールドの追加スタイル */
+.login-container input[type="email"],
+.login-container input[type="password"] {
   border: 1px solid #ccc;
-  border-radius: 5px;
-  font-size: 14px;
 }
 
-/* ボタンのスタイル */
-.login-form button {
-  width: 100%;
-  padding: 10px;
-  background-color: #007bff;
+/* ログインボタン */
+.login-container button {
+  margin-top: 20px;
+  background-color: #28a745;
   color: white;
   border: none;
-  border-radius: 5px;
-  font-size: 16px;
   cursor: pointer;
+  transition: background-color 0.3s;
 }
 
-.login-form button:hover {
-  background-color: #0056b3;
+/* テキスト*/
+.text {
+  text-align: left;
+  margin-bottom: 5px;
 }
 
-/* エラーメッセージのスタイル */
-.login-form .error-message {
+.login-container button:hover {
+  background-color: #218838;
+}
+
+/* 新規登録リンク */
+.signup-link {
+  display: block;
+  margin-top: 30px;
+  color: #007bff;
+  text-decoration: none;
+}
+
+.signup-link:hover {
+  text-decoration: underline;
+}
+
+/* エラーメッセージ */
+.error-message {
   color: red;
+  margin-top: 10px;
   font-size: 14px;
-  margin-bottom: 15px;
 }

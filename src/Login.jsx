@@ -2,7 +2,7 @@ import { useState } from "react";
 import { signInWithEmailAndPassword } from "firebase/auth";
 import { Link, useNavigate } from "react-router-dom"; // Link と useNavigate のインポート
 import { auth } from "./firebase"; // Firebaseの認証機能をインポート
-//import "./Login.css"; // スタイルのインポート
+import "./Login.css"; // スタイルのインポート
 
 const Login = () => {
   const [email, setEmail] = useState("");
@@ -21,21 +21,24 @@ const Login = () => {
   return (
     <div className="login-container">
       <h2>ログイン</h2>
+      <p className="text">メールアドレス</p>
       <input
         type="email"
         placeholder="Email"
         onChange={(e) => setEmail(e.target.value)}
       />
+      <p className="text">パスワード</p>
       <input
         type="password"
         placeholder="Password"
         onChange={(e) => setPassword(e.target.value)}
       />
+
       <button onClick={handleLogin}>ログイン</button>
 
       {/* 新規登録ページへのリンク */}
       <p>
-        アカウントをお持ちでないですか？ <Link to="/signup">新規登録</Link>
+        <Link to="/signup">新規登録</Link>
       </p>
     </div>
   );

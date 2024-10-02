@@ -2,8 +2,8 @@ import { useState } from "react";
 import { createUserWithEmailAndPassword } from "firebase/auth";
 import { setDoc, doc } from "firebase/firestore";
 import { auth, db } from "./firebase"; // Firebase AuthenticationとFirestoreをインポート
-import { useNavigate } from "react-router-dom"; // ページ遷移用
-//import "./Signup.css"; // スタイルのインポート
+import { Link, useNavigate } from "react-router-dom"; // ページ遷移用
+import "./Signup.css"; // スタイルのインポート
 
 const Signup = () => {
   const [email, setEmail] = useState("");
@@ -40,27 +40,41 @@ const Signup = () => {
 
   return (
     <div className="signup-container">
-      <h2>新規登録</h2>
+      <h2 className="title">新規登録</h2>
+
+      <p className="text">ユーザー名</p>
       <input
         type="text"
-        placeholder="ユーザー名"
+        placeholder="User Name"
         onChange={(e) => setUsername(e.target.value)}
       />
+
+      <p className="text">メールアドレス</p>
       <input
         type="email"
-        placeholder="メールアドレス"
+        placeholder="Email"
         onChange={(e) => setEmail(e.target.value)}
       />
+
+      <p className="text">パスワード</p>
       <input
         type="password"
-        placeholder="パスワード"
+        placeholder="Password"
         onChange={(e) => setPassword(e.target.value)}
       />
+
+      <p className="text">ステータスメッセージ</p>
       <textarea
-        placeholder="プロフィール文"
+        placeholder="Status Message"
         onChange={(e) => setProfileText(e.target.value)}
       ></textarea>
-      <button onClick={handleSignup}>新規登録</button>
+      <button className="registrate-button" onClick={handleSignup}>
+        新規登録
+      </button>
+
+      <Link to="/login">
+        <p className="back">戻る</p>
+      </Link>
     </div>
   );
 };
