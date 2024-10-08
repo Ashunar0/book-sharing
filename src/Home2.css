@@ -1,6 +1,7 @@
 .header-band {
   width: 100%;
   display: flex;
+  align-items: center;
 }
 
 #icon {
@@ -15,4 +16,32 @@
 #user-name {
   font-size: 1.2rem;
   margin-left: auto;
+}
+
+.posts-container :hover {
+  background: #f0f0f0;
+}
+
+.post {
+  width: 100%;
+  padding: 0.5em 1em;
+  font-weight: bold;
+  background: #fff;
+}
+
+.post-user-info {
+  display: flex;
+  align-items: center;
+}
+
+#user-image {
+  width: 50px;
+  height: 50px;
+  margin-right: 10px;
+}
+
+#post-created-at {
+  font-size: 0.7rem;
+  margin-left: auto;
+  color: #888;
 }

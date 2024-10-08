@@ -73,15 +73,16 @@ const Home = () => {
       <div className="posts-container">
         {posts.map((post) => (
           <div key={post.id} className="post">
-            <h3>{post.title}</h3>
-            <p>{post.content}</p>
-            <small className="author">
-              投稿者: {usernames[post.userId] || "Unknown"}
-            </small>{" "}
+            <div className="post-user-info">
+              <img id="user-image" src="images/user_icon.png" alt="user-icon" />
+              <h3 id="post-user-name">{usernames[post.userId] || "Unknown"}</h3>
+              <p id="post-created-at">
+                {new Date(post.createdAt.seconds * 1000).toLocaleString()}
+              </p>
+            </div>
+            <h3 className="post-title">{post.title}</h3>
+            <h4 className="post-content">{post.content}</h4>
             {/* ユーザー名の表示 */}
-            <small className="created-at">
-              {new Date(post.createdAt.seconds * 1000).toLocaleString()}
-            </small>
           </div>
         ))}
       </div>
