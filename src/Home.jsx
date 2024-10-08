@@ -55,7 +55,7 @@ const Home = () => {
         )}
       </header>
 
-      <h2 className="fixed-header">ホーム画面</h2>
+      <h2 className="page-title">ホーム画面</h2>
 
       <div className="sidebar">
         <Link to="/profile">
