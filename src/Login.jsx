@@ -10,6 +10,7 @@ const Login = () => {
   const [error, setError] = useState("");
   const navigate = useNavigate();
 
+  //ログインの処理をする関数
   const handleLogin = async (e) => {
     e.preventDefault();
     try {

@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { auth, db } from "./firebase"; // Firebaseのauthとdbをインポート
 import { collection, getDocs } from "firebase/firestore";
 import { Link } from "react-router-dom";
-//import "./Home.css";
+import "./Home2.css";
 
 const Home = () => {
   const [posts, setPosts] = useState([]);
@@ -43,15 +43,19 @@ const Home = () => {
 
   return (
     <div className="home-container">
-      <h1 className="fixed-header">ホーム画面</h1>
+      <header className="header-band">
+        <img id="icon" src="images/icon.png" alt="icon" />
+        <h2 id="title">Book-Sharing</h2>
 
-      {/* ユーザー名の表示 */}
-      {auth.currentUser && (
-        <h2>
-          こんにちは,{" "}
-          {usernames[auth.currentUser.uid] || auth.currentUser.email}!
-        </h2>
-      )}
+        {/* ユーザー名の表示 */}
+        {auth.currentUser && (
+          <h2 id="user-name">
+            {usernames[auth.currentUser.uid] || auth.currentUser.email}
+          </h2>
+        )}
+      </header>
+
+      <h2 className="fixed-header">ホーム画面</h2>
 
       <div className="sidebar">
         <Link to="/profile">
