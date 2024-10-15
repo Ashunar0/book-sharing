@@ -1,0 +1,122 @@
+.home-container {
+  width: 1200px;
+}
+
+.page-title {
+  margin-left: 20px;
+}
+
+.header-band {
+  width: 1200px;
+  display: flex;
+  align-items: center;
+}
+
+.main-container {
+  width: 1000px;
+  display: flex;
+}
+
+.sidebar {
+  width: 40%;
+}
+
+.title-and-icon {
+  display: flex;
+  align-items: center;
+}
+
+.user-profile-info {
+  display: flex;
+}
+
+#user-profile-icon {
+  width: 70px;
+  height: 70px;
+  margin-left: 20px;
+}
+
+.sidebar-buttons {
+  text-align: center;
+}
+
+.sidebar-button {
+  width: 60%;
+  background-color: #fff;
+}
+.sidebar-button:hover {
+  background-color: #f0f0f0;
+}
+
+.timeline {
+  width: 1000px;
+}
+
+#icon {
+  width: 70px;
+  height: 70px;
+  margin-left: 20px;
+}
+
+#title {
+  font-size: 1.3rem;
+}
+
+#user-name {
+  font-size: 1.2rem;
+  margin-left: auto;
+}
+
+.posts-container :hover {
+  background: #f0f0f0;
+}
+
+.post {
+  width: 100%;
+  padding: 0.5em 0.5em;
+  font-weight: bold;
+  background: #fff;
+}
+
+.post-user-info {
+  display: flex;
+  align-items: center;
+}
+
+#user-image {
+  width: 50px;
+  height: 50px;
+  margin-right: 10px;
+  margin-left: 80px;
+}
+
+#post-created-at {
+  font-size: 0.7rem;
+  margin-left: auto;
+  color: #888;
+}
+
+#post-title {
+  margin: 10px;
+  margin-left: 130px;
+}
+
+#post-content {
+  margin: 20px;
+  margin-left: 140px;
+}
+
+.responces {
+  display: flex;
+  align-items: center;
+}
+
+.responce-icon {
+  width: 30px;
+  height: 30px;
+  margin-left: 100px;
+}
+
+.responce-count {
+  margin-left: 20px;
+}

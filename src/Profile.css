@@ -1,0 +1,35 @@
+.profile-container {
+  width: 1200px;
+}
+
+.user-info {
+  display: flex;
+  align-items: center;
+}
+
+#user-icon {
+  width: 100px;
+  height: 100px;
+}
+
+#user-name {
+  font-size: 1.5em;
+  margin-left: 30px;
+}
+
+#status-message {
+  margin-left: 30px;
+  font-size: 1em;
+}
+
+.buttons {
+  margin-left: 30px;
+}
+
+#profile-edit-button {
+  margin-left: 10px;
+}
+
+#your-posts {
+  margin-left: 30px;
+}

@@ -1,0 +1,98 @@
+/* 全体のスタイル */
+.body {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+  background-color: #f4f4f4;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  box-sizing: border-box; /* パディングやボーダーを含めたサイズ管理 */
+}
+
+/* サインアップフォームのコンテナ */
+.signup-container {
+  background-color: #fff;
+  padding: 40px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  width: 500px;
+  text-align: center;
+  box-sizing: border-box;
+}
+
+/* サインアップフォームのタイトル */
+.signup-container h2 {
+  margin-bottom: 40px;
+  font-size: 24px;
+  color: #333;
+}
+
+/* 入力フィールド */
+.signup-container input[type="text"],
+.signup-container input[type="email"],
+.signup-container input[type="password"],
+.signup-container textarea,
+.signup-container button {
+  width: 100%;
+  padding: 10px;
+  margin: 10px 0;
+  border-radius: 4px;
+  font-size: 16px;
+  box-sizing: border-box; /* パディングやボーダーを含めたサイズ管理 */
+}
+
+/* 入力フィールドの追加スタイル */
+.signup-container input[type="text"],
+.signup-container input[type="email"],
+.signup-container input[type="password"] {
+  border: 1px solid #ccc;
+}
+
+.text {
+  margin-bottom: 5px;
+}
+
+/* サインアップボタン */
+.signup-container button {
+  background-color: #28a745;
+  color: white;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.signup-container button:hover {
+  background-color: #218838;
+}
+
+.back {
+  display: block;
+  margin-top: 20px;
+  color: #007bff;
+  text-decoration: none;
+}
+
+.back:hober {
+  text-decoration: underline;
+}
+
+/* ログインページへのリンク */
+.login-link {
+  display: block;
+  margin-top: 20px;
+  color: #28a745;
+  text-decoration: none;
+}
+
+.login-link:hover {
+  text-decoration: underline;
+}
+
+/* エラーメッセージ */
+.error-message {
+  color: red;
+  margin-top: 10px;
+  font-size: 14px;
+}
