@@ -1,0 +1,94 @@
+.login-page {
+  width: 1200px;
+}
+
+.login-container {
+  margin: 0 auto;
+  padding: 0;
+  font-family: Arial, sans-serif;
+  background-color: #6e6c6c;
+  width: 40%;
+  height: 90vh;
+  box-sizing: border-box;
+  text-align: center;
+}
+
+/* ログインフォームのコンテナ */
+.login-container {
+  background-color: #fff;
+  padding: 40px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  width: 400px;
+  text-align: center;
+}
+
+/* ログインフォームのタイトル */
+.login-container h1 {
+  margin-bottom: 30px;
+  font-size: 24px;
+  color: #333;
+}
+
+/* 入力フィールド */
+.login-container input[type="email"],
+.login-container input[type="password"] {
+  width: 100%; /* 全ての要素の幅を100%に設定 */
+  padding: 10px;
+  margin: 10px 0;
+  border-radius: 4px;
+  font-size: 16px;
+  box-sizing: border-box; /* これでパディングやボーダーを含めたサイズが正確に管理されます */
+  border: 1px solid #ccc;
+}
+
+.login-container button {
+  width: 80%;
+  padding: 10px;
+  margin: 10px 0;
+  border-radius: 4px;
+  font-size: 16px;
+  box-sizing: border-box;
+  color: #fff;
+  background-color: #27b28f;
+}
+.login-container button:hover {
+  background-color: #9cdaca;
+}
+
+/* テキスト*/
+.text {
+  text-align: left;
+  margin-bottom: 5px;
+}
+
+.sign-up-text {
+  display: flex;
+  align-items: center;
+  text-align: center;
+}
+
+.sign-up {
+  font-size: 0.8em;
+  margin-right: 30px;
+}
+
+/* 新規登録リンク */
+.signup-link {
+  font-size: 0.8em;
+  display: block;
+  margin-top: 30px;
+  color: #007bff;
+  text-decoration: none;
+}
+
+.signup-link:hover {
+  text-decoration: underline;
+}
+
+/* エラーメッセージ */
+.error-message {
+  color: red;
+  margin-top: 10px;
+  font-size: 14px;
+}
